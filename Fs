@@ -1,0 +1,94 @@
+your-music-website/
+  - public/
+    - index.html
+    - style.css
+    - app.js
+  - server.js
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Synergy Music Productions</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Synergy Music Productions</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>About Us</h2>
+        <p>Synergy Music Productions is a leading music production company founded by Oluwasegun Olayinka.</p>
+    </section>
+    <section>
+        <h2>Our Services</h2>
+        <ul>
+            <li>Music Production</li>
+            <li>Sound Mixing</li>
+            <li>Mastering</li>
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2023 Synergy Music Productions</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
+body {
+    background-color: black;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+section {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+body {
+    document.addEventListener('DOMContentLoaded', function () {
+    // You can add interactivity or make API requests here.
+});
+const express = require('express');
+const app = express();
+const port = 3000; // You can change this to the desired port number
+
+app.use(express.static('public')); // Serve static files from the 'public' directory
+
+// Define routes and backend functionality
+app.get('/api/boss', (req, res) => {
+    const bossInfo = {
+        name: 'Oluwasegun Olayinka',
+        title: 'CEO of Synergy Music Productions'
+    };
+    res.json(bossInfo);
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
